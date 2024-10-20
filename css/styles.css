@@ -101,3 +101,9 @@ body::before {
     font-size: 1.25rem;
     color: #343a40;
 }
+.auth-link-custom{
+    text-decoration: none;
+}
+.auth-link-custom:hover{
+    text-decoration: underline;
+}

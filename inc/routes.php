@@ -3,5 +3,6 @@
 return [
     '404',
     'home',
-    'login'
+    'login',
+    'register',
 ];

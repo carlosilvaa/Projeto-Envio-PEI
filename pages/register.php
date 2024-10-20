@@ -4,7 +4,7 @@ defined('CONTROL') or die('Acesso inválido');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['user'] ?? '';
     $password = $_POST['password'] ?? '';
-    $response = login($user, $password);
+    $response = register($user, $password);
 
     header('Location: ?route=home');
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css">
-    <title>UTFPR - Login</title>
+    <title>UTFPR - Cadastro</title>
 </head>
 
 <body>
@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <img src="../img/UTFPR_logo.png" alt="Logo UTFPR" width="250" height="96">
                                 </a>
                             </div>
-                            <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Entre com seu usuário!</h2>
-                            <form action="index.php?route=login" method="POST" class="mb-2">
+                            <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Olá, por favor, crie uma conta para começar</h2>
+                            <form action="index.php?route=register" method="POST" class="mb-2">
                                 <div class="row gy-2 overflow-hidden">
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
@@ -53,7 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" name="password" id="password" value="" placeholder="Senha" required>
-                                            <label for="password" class="form-label">Nova Senha: </label>
+                                            <label for="password" class="form-label">Senha</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" name="password-confirm" id="password-confirm" value="" placeholder="Senha" required>
+                                            <label for="password-confirm" class="form-label">Repetir senha</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -63,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                 </div>
                             </form>
-                                <a href="?route=register" class="text-secondary auth-link-custom"><small>Não tem uma conta? Cadastre-se aqui!</small></a>
+                            <a href="?route=login" class="text-secondary auth-link-custom"><small>Já tem uma conta? Entre por aqui!</small></a>
                         </div>
                     </div>
                 </div>

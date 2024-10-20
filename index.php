@@ -16,6 +16,9 @@ switch ($route) {
     case 'login':
         require_once 'pages/login.php';
         break;
+    case 'register':
+        require_once 'pages/register.php';
+        break;
     case 'home':
         require_once 'inc/header.php';
         require_once 'pages/home.php';

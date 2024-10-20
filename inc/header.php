@@ -26,7 +26,7 @@ defined('CONTROL') or die('Acesso inválido')
                 Regina Almeida
             </div>
         </div>
-        <div class="col text-center">
+        <a href="?route=login" class="col text-center">
             <button type="submit" class="btn btn-warning btn-sm">Desconectar</button>
-        </div>
+        </a>
     </header>

@@ -3,7 +3,6 @@ function apiRequest($url, $method = 'GET', $data = null, $headers = []) {
     // Função para consumir API
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    
     // Método
     switch (strtoupper($method)) {
         case 'POST':
@@ -42,6 +41,7 @@ function apiRequest($url, $method = 'GET', $data = null, $headers = []) {
 //função apenas para exemplo
 function login($user, $password) { 
     $url = "https://api/login";
+    $method = 'POST';
     $data = [
         'usuario' => $user, // ou email, vai depender de como vai ser feito no banco de dados
         'password' => $password
@@ -51,5 +51,19 @@ function login($user, $password) {
         'Accept: application/json'
     ];
     // em suma, retorna um json_decode com as informações do servidor
-    return apiRequest($url, 'POST', $data, $headers);
+    return apiRequest($url, $method, $data, $headers);
+}
+function register($user, $password) { 
+    $url = "https://api/register";
+    $method = 'POST';
+    $data = [
+        'usuario' => $user, // ou email, vai depender de como vai ser feito no banco de dados
+        'password' => $password
+    ];
+    $headers = [
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ];
+    // em suma, retorna um json_decode com as informações do servidor
+    return apiRequest($url, $method, $data, $headers);
 }
