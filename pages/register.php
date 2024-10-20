@@ -46,20 +46,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="row gy-2 overflow-hidden">
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="user" id="user" placeholder="nome@exemplo.com" required>
+                                            <input type="text" class="form-control" name="user" id="user" placeholder="nome" required>
                                             <label for="user" class="form-label">Usuário</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="nome@exemplo.com" required>
+                                            <label for="email" class="form-label">E-mail</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" name="password" id="password" value="" placeholder="Senha" required>
                                             <label for="password" class="form-label">Senha</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" name="password-confirm" id="password-confirm" value="" placeholder="Senha" required>
-                                            <label for="password-confirm" class="form-label">Repetir senha</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
