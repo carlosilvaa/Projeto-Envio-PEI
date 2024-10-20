@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <button class="btn btn-warning btn-md text-white " type="submit">Entrar</button>
+                                            <button class="btn btn-warning btn-md text-white " type="submit">Cadastrar</button>
                                         </div>
                                     </div>
                                 </div>
