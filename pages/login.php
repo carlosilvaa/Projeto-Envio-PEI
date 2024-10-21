@@ -2,9 +2,9 @@
 include 'inc/api_consumer.php';
 defined('CONTROL') or die('Acesso inválido');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = $_POST['user'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $response = login($user, $password);
+    // $user = $_POST['user'] ?? '';
+    // $password = $_POST['password'] ?? '';
+    // $response = login($user, $password);
 
     header('Location: ?route=home');
 
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" name="password" id="password" value="" placeholder="Senha" required>
-                                            <label for="password" class="form-label">Nova Senha: </label>
+                                            <label for="password" class="form-label">Senha: </label>
                                         </div>
                                     </div>
                                     <div class="col-12">

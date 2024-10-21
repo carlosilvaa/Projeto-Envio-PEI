@@ -2,9 +2,9 @@
 include 'inc/api_consumer.php';
 defined('CONTROL') or die('Acesso inválido');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = $_POST['user'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $response = register($user, $password);
+    // $user = $_POST['user'] ?? '';
+    // $password = $_POST['password'] ?? '';
+    // $response = register($user, $password);
 
     header('Location: ?route=home');
 
