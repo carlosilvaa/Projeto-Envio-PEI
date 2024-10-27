@@ -22,15 +22,27 @@ defined('CONTROL') or die('Acesso inválido')
                     <ul class="list-group">
                         <li class="list-group-item d-flex">
                             Ana Souza - Desenvolvimento de Software
-                            <button class="btn btn-outline-success btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal" onclick="setStudentId('2')">
-                                <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
-                            </button>
+                            <div class="ms-auto">
+                                <a class="btn btn-sm">
+                                    Aceite &nbsp <i class="fa-solid fa-circle-check text-success"></i>
+                                </a>
+                            </div>
                         </li>
                         <li class="list-group-item d-flex">
                             Carlos Andrade - Qualidade de Software
-                            <button class="btn btn-outline-success btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal" onclick="setStudentId('2')">
-                                <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
-                            </button>
+                            <div class="ms-auto">
+                                <button class="btn btn-sm">
+                                    Pendente &nbsp <i class="fa-solid fa-circle-exclamation text-warning"></i>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex">
+                            Ruan Silva - Algoritmos
+                            <div class="ms-auto">
+                                <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="" onclick="setStudentId('2')">
+                                    <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
+                                </button>
+                            </div>
                         </li>
                     </ul>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal" onclick="setStudentId('id')">Anexar PEI</button>
@@ -49,15 +61,19 @@ defined('CONTROL') or die('Acesso inválido')
                     <ul class="list-group">
                         <li class="list-group-item d-flex">
                             Beatriz Costa - Algorítmos
-                            <button class="btn btn-outline-success btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal" onclick="setStudentId('2')">
-                                <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
-                            </button>
+                            <div class="ms-auto">
+                                <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="" onclick="setStudentId('2')">
+                                    <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
+                                </button>
+                            </div>
                         </li>
                         <li class="list-group-item d-flex">
                             Ricardo Pereira - Desenvolvimento Web Cliente
-                            <button class="btn btn-outline-success btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal" onclick="setStudentId('2')">
-                                <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
-                            </button>
+                            <div class="ms-auto">
+                                <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="" onclick="setStudentId('2')">
+                                    <i class="fas fa-paper-plane">&nbsp</i>Enviar PEI
+                                </button>
+                            </div>
                         </li>
                     </ul>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#uploadDocumentModal" onclick="setStudentId('id')">Anexar PEI</button>

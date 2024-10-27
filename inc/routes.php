@@ -5,4 +5,5 @@ return [
     'home',
     'login',
     'register',
+    'check',
 ];

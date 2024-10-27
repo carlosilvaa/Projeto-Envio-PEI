@@ -107,3 +107,58 @@ body::before {
 .auth-link-custom:hover{
     text-decoration: underline;
 }
+.confirm-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+}
+#read_n_check .btn-confirm{
+    width: 100%;
+}
+
+/* Responsividade da home */
+
+@media (max-width: 576px) {
+    #home-page {
+        padding: 0 15px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    #admin-title {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .accordion-button {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    .btn {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .list-group-item {
+        padding: 10px 8px;
+    }
+
+    .accordion-body ul {
+        padding-left: 5px;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+}
