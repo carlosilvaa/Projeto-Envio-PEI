@@ -16,28 +16,20 @@ class GesusuController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
         try {
             $validated = $request->validate([
                 'NOME_PROFIS' => 'required|max:100|unique:gesusus,NOME_PROFIS',
                 'SENHA' => 'required|max:8|unique:gesusus,SENHA',
                 'STATUS' => 'nullable|in:A,I',
-                'EMAIL' => 'nullable|email|max:250',
+                'EMAIL' => 'required|email|max:250',
             ]);
 
             $gesusu = Gesusu::create($validated);
-            return response()->json($gesusu, 201);
+            return response()->json(['message' => 'Cadastro bem-sucedido!', "status"=> "201"], 200);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'errors' => $e->errors(),
@@ -49,10 +41,33 @@ class GesusuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Gesusu $gesusu)
+    public function login(Request $request)
     {
-        //
+        try {
+           
+            $validated = $request->validate([
+                'NOME' => 'required|max:100',
+                'SENHA' => 'required|max:8',
+            ]);
+
+            $user = Gesusu::where('NOME_PROFIS', $validated['NOME'])
+                ->where('SENHA', $validated['SENHA'])
+                ->first();
+    
+            if (!$user) {
+                return response()->json(['error' => 'Credenciais inválidas.'], 401);
+            }
+            if ($user->STATUS === 'I') {
+                return response()->json(['error' => 'Usuário inativo.'], 403);
+            }
+            return response()->json(['message' => 'Login bem-sucedido!', 'user' => $user, "status"=> "200"], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'errors' => $e->errors(),
+            ], 422);
+        }
     }
+    
 
     /**
      * Show the form for editing the specified resource.

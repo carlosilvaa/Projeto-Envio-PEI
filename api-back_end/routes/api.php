@@ -10,4 +10,5 @@ Route::apiResource('alunos', AlunoController::class);
 // Route::apiResource('usuarios', GesusuController::class);
 Route::apiResource('materias', MateriaController::class);
 Route::apiResource('professor', ProfessorController::class);
-Route::post('usuarios/cadastrar', [GesusuController::class, 'store']);
+Route::post('usuarios/cadastrar', [GesusuController::class, 'create']);
+Route::post('usuarios/login', [GesusuController::class, 'login']);

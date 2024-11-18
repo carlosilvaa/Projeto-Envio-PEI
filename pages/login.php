@@ -2,19 +2,17 @@
 include 'inc/api_consumer.php';
 defined('CONTROL') or die('Acesso inválido');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // $user = $_POST['user'] ?? '';
-    // $password = $_POST['password'] ?? '';
-    // $response = login($user, $password);
+    $user = $_POST['user'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $response = login($user, $password);
 
-    header('Location: ?route=home');
-
-    // if ($response && $response['status'] === 'success') {
-    //     // só para teste no momento, assim que tiver servidor fazemos a permanência de sessão
-    //     header('Location: index.php?route=home');
-    //     exit;
-    // } else {
-    //     $error = $response['message'] ?? 'Erro ao tentar logar.';
-    // }
+    if ($response && $response['status'] === '200') {
+        // só para teste no momento, assim que tiver servidor fazemos a permanência de sessão
+        header('Location: index.php?route=home');
+        exit;
+    } else {
+        $error = $response['data'] ?? 'Erro ao tentar logar.';
+    }
 }
 ?>
 <!DOCTYPE html>

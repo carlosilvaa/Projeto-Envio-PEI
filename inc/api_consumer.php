@@ -40,11 +40,11 @@ function apiRequest($url, $method = 'GET', $data = null, $headers = []) {
 
 //função apenas para exemplo
 function login($user, $password) { 
-    $url = "https://api/login";
+    $url = "http://localhost:8000/api/usuarios/login";
     $method = 'POST';
     $data = [
-        'usuario' => $user, // ou email, vai depender de como vai ser feito no banco de dados
-        'password' => $password
+        'NOME' => $user, // ou email, vai depender de como vai ser feito no banco de dados
+        'SENHA' => $password
     ];
     $headers = [
         'Content-Type: application/json',
@@ -53,12 +53,13 @@ function login($user, $password) {
     // em suma, retorna um json_decode com as informações do servidor
     return apiRequest($url, $method, $data, $headers);
 }
-function register($user, $password) { 
-    $url = "https://api/register";
+function register($user, $password, $email) { 
+    $url = "http://localhost:8000/api/usuarios/cadastrar";
     $method = 'POST';
     $data = [
-        'usuario' => $user, // ou email, vai depender de como vai ser feito no banco de dados
-        'password' => $password
+        'NOME_PROFIS' => $user, // ou email, vai depender de como vai ser feito no banco de dados
+        'SENHA' => $password,
+        'EMAIL' => $email
     ];
     $headers = [
         'Content-Type: application/json',
