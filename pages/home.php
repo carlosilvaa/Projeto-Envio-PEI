@@ -1,5 +1,4 @@
 <?php
-session_start();
 defined('CONTROL') or die('Acesso inválido')
 ?>
 <div class="container" id="home-page">
