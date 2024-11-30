@@ -18,11 +18,32 @@ class MateriaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+    public function create(Request $request){
+        try {
+            $validated = $request->validate([
+                'DESCRICAO' => 'required|max:100|unique:materias,DESCRICAO',
+                'CODPROF' => 'required|max:11|exists:professors,CODPROF',
+                'STATUS' => 'nullable|in:A,I',
+            ]);
+
+            $materia = Materia::create($validated);
+            return response()->json(['message' => 'Cadastro bem-sucedido!', "status"=> 200], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'errors' => $e->errors(),
+            ], 422);
+        }
     }
 
+
+    public function getMaterias() {
+        try {
+            $materias = Materia::where('STATUS', 'A')->get(['CODMAT', 'DESCRICAO']);
+            return response()->json($materias);    
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao obter as materias'], 500);
+        }
+    }
     /**
      * Store a newly created resource in storage.
      */
