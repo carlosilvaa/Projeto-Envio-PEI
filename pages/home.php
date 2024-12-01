@@ -214,7 +214,7 @@ defined('CONTROL') or die('Acesso inválido')
             const data = await response.json();
 
             const selectProfessor = document.getElementById('selectProfessor');
-
+            
             selectProfessor.innerHTML = '';
 
             const defaultOption = document.createElement('option');
@@ -246,7 +246,7 @@ defined('CONTROL') or die('Acesso inválido')
             var data = await response.json();
 
             var selectMateriaAluno = document.getElementById('selectMateriaAluno');
-
+            
             selectMateriaAluno.innerHTML = '';
 
             var defaultOption = document.createElement('option');
@@ -278,7 +278,7 @@ defined('CONTROL') or die('Acesso inválido')
             var data = await response.json();
 
             var selectMateriaProfessor = document.getElementById('selectMateriaProfessor');
-
+            
             selectMateriaProfessor.innerHTML = '';
 
             var defaultOption = document.createElement('option');
@@ -298,7 +298,7 @@ defined('CONTROL') or die('Acesso inválido')
     }
 
     var addMateriaModal = document.getElementById('addMateriaModal');
-    addMateriaModal.addEventListener('shown.bs.modal', function() {
+    addMateriaModal.addEventListener('shown.bs.modal', function () {
         document.getElementById('nomeMateria').value = '';
 
         var descricao = document.getElementById('nomeMateria')
@@ -307,11 +307,11 @@ defined('CONTROL') or die('Acesso inválido')
         codprof.classList.remove('is-invalid');
 
         var selectProfessor = document.getElementById('selectProfessor');
-        selectProfessor.selectedIndex = 0;
+        selectProfessor.selectedIndex = 0; 
     });
 
     var form = document.getElementById('addMateriaForm');
-    form.addEventListener('submit', async function(event) {
+    form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
         var descricao = document.getElementById('nomeMateria').value.trim();
@@ -332,7 +332,7 @@ defined('CONTROL') or die('Acesso inválido')
                 showConfirmButton: false,
             });
 
-            return;
+            return; 
         }
 
         var data = {
@@ -415,4 +415,5 @@ defined('CONTROL') or die('Acesso inválido')
     document.addEventListener('DOMContentLoaded', loadProfessores);
     document.addEventListener('DOMContentLoaded', loadMateriasAluno);
     document.addEventListener('DOMContentLoaded', loadMateriasProfessor);
+
 </script>
