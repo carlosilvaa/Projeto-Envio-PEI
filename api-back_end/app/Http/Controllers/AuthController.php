@@ -1,3 +1,4 @@
+<!-- a principio acho que nao estamos usando esse auth controller para autenticacao -->
 <?php
 
 namespace App\Http\Controllers;
@@ -17,15 +18,27 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $user = Gesusu::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ]);
-
-        $token = JWTAuth::fromUser($user);
-
-        return response()->json(compact('user', 'token'));
+        try {
+            $user = Gesusu::create([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+            ]);
+            $token = JWTAuth::fromUser($user);
+        
+            return response()->json([
+                'success' => true,
+                'message' => 'Usuário registrado com sucesso.',
+                'user' => $user,
+                'token' => $token,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Erro ao registrar usuário.',
+            ], 500);
+        }
+        
     }
 
     public function login(Request $request)
@@ -33,10 +46,17 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'Invalid credentials'], 401);
-        }
-
-        return response()->json(compact('token'));
+            return response()->json([
+                'success' => false,
+                'message' => 'Credenciais inválidas.',
+            ], 401);
+        }        
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Login bem-sucedido.',
+            'token' => $token,
+        ]);        
     }
 
     public function user()

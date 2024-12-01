@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gesusus', function (Blueprint $table) {
             $table->id('ID_USUARIO');
             $table->string('NOME_PROFIS', 100)->unique();
-            $table->string('SENHA', 8)->nullable()->unique();
+            $table->string('SENHA', 8)->nullable();
             $table->char('STATUS', 1)->default('A');
             $table->string('EMAIL', 250)->nullable();
             $table->timestamps();

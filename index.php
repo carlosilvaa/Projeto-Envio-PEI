@@ -8,7 +8,7 @@ define('CONTROL', true);
 $routes = require_once('inc/routes.php');
 $route = $_GET['route'] ?? 'login';
 
-if(!in_array($route, $routes)){
+if (!in_array($route, $routes)) {
     $route = '404';
 }
 
@@ -22,6 +22,11 @@ switch ($route) {
     case 'home':
         require_once 'inc/header.php';
         require_once 'pages/home.php';
+        require_once 'inc/footer.php';
+        break;
+    case 'gerenciar':
+        require_once 'inc/header.php';
+        require_once 'pages/gerenciar.php';
         require_once 'inc/footer.php';
         break;
     case '404':

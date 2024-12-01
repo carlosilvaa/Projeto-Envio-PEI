@@ -6,4 +6,5 @@ return [
     'login',
     'register',
     'check',
+    'gerenciar',
 ];

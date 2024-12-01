@@ -15,6 +15,15 @@ class ProfessorController extends Controller
         //
     }
 
+    public function getProfessores() {
+        try {
+            $professores = Professor::where('STATUS', 'A')->get(['CODPROF', 'NOME']);
+            return response()->json($professores);    
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao obter professores'], 500);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -18,17 +18,37 @@ defined('CONTROL') or die('Acesso inválido')
     <header class="d-flex align-items-center px-5 py-1 bg-light border-bottom">
         <div class="col text-center">
             <div class="logo">
-                <img src="../img/UTFPR_logo.png" alt="Logo UTFPR" height="60">
+                <a href="?route=home">
+                    <img src="../img/UTFPR_logo.png" alt="Logo UTFPR" height="60">
+                </a>
             </div>
         </div>
         <div class="col text-center">
-            <div class="username fw-bold">
-                Regina Almeida
+            <div class="username fw-bold" id="username">
+
             </div>
         </div>
         <div class="col text-center">
-            <a href="?route=login">
-                <button type="submit" class="btn btn-warning btn-sm">Desconectar</button>
+            <a href="javascript:void(0);" onclick="logout()">
+                <button type="button" class="btn btn-warning btn-sm">Desconectar</button>
             </a>
+
+            <script>
+                function logout() {
+                    sessionStorage.removeItem("username");
+                    window.location.href = "?route=login";
+                }
+            </script>
         </div>
+        <script>
+            window.onload = function() {
+                const username = sessionStorage.getItem("username");
+
+                if (username) {
+                    document.getElementById("username").textContent = username;
+                } else {
+                    window.location.href = "?route=login";
+                }
+            };
+        </script>
     </header>
